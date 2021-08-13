@@ -1,14 +1,15 @@
-const quantity = document.getElementById('categories').getElementsByClassName('item').length
-console.log(`В списке ${quantity} категории`)
-
-//2 способ
-//console.log(document.getElementsByClassName('item').length)
-
-
-
-const items = document.querySelectorAll('.item');
-Array.prototype.forEach.call(items, (element) => {
-    const title = element.querySelector('h2').innerHTML;
-    const itemsLength = element.querySelectorAll('li').length;
-    console.log(`Категория: ${title} / Количество элементов: ${itemsLength}`);
-});
+const elemCategories = document.querySelector('#categories');
+//console.log(elemCategories);
+const items = elemCategories.querySelectorAll('.item');
+console.log(`В списке ${items.length} категории`);
+console.log('');
+//console.log(elemItems);
+const titles = [];
+items.forEach(elem => {
+    console.log('Категория : ', elem.getElementsByTagName('h2')[0].textContent);
+    console.log(
+        'Количество эелментов : ',
+        elem.getElementsByTagName('li').length
+    );
+    console.log('');
+})
